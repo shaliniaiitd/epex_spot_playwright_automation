@@ -49,6 +49,17 @@ def setup_data(page,resolve_date,output_path,target_url):
         "output_path": output_path
     }
 
+# Validate URL
+def test_url(setup_data):
+     page = setup_data["page"]
+     delivery_date = setup_data["delivery-date"]
+
+     url = page.url
+
+     #Validate URL
+     assert delivery_date in url
+     assert "market-results" in url
+
 #---------------------------------------------------
 # Test Class
 #----------------------------------------------------
@@ -64,14 +75,7 @@ class TestMarketData:
     @allure.title("Navigation and page validation")
     def test_navigation(self, setup_data):
         page = setup_data["page"]
-        delivery_date = setup_data["delivery-date"]
-
-        url = page.url
-
-        #Validate URL
-        assert delivery_date in url
-        assert "market-results" in url
-
+       
         #validate reaching page with table
         assert page.locator("table.table-01").count() > 0
         assert page.locator("div.fixed-column li.sub-child.lvl-1").count() > 0
