@@ -16,7 +16,7 @@ EXPECTED_ROWS = 48
 REQUIRED_COLS = ["Low", "High", "Last", "Weight Avg"]
 
 # Validate URL
-def test_url(response_date,target_url):
+def test_url(resolve_date,target_url):
 
      #Validate URL
      assert response_date in target_url
