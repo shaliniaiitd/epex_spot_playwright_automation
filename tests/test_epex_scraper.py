@@ -55,6 +55,7 @@ def setup_data(page,resolve_date,output_path,target_url):
 
 @allure.suite("EPEX SPOT Scraper")
 @allure.feature("Market Data Scraping")
+@pytest.mark.e2e
 class TestMarketData:
     # -----------------------------
     # ✅ VALIDATE NAVIGATION
@@ -78,8 +79,6 @@ class TestMarketData:
     # -----------------------------
     # ✅ DATA VALIDATION
     # -----------------------------
-
-
 
     @allure.title("Data extraction and validation")
     def test_data_extraction(self, setup_data):
