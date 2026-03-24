@@ -26,7 +26,7 @@ jobs:
           python -m playwright install-deps chromium
 
       - name: Run unit tests (no browser needed)
-        run: pytest tests/test_epex_scraper.py -v
+        run: pytest tests/test_epex_scraper.py -v -m "not e2e"
 
       # e2e tests require a live browser + saved Cloudflare session.
       # They are skipped here automatically (no session/ folder in CI).
