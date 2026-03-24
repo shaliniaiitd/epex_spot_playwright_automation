@@ -22,7 +22,7 @@ playwright install
 
 
 ## RUN
-
+> Note: End-to-end scraping requires manual CAPTCHA resolution on first run.
 # Default (Chromium)
 pytest -s
 
