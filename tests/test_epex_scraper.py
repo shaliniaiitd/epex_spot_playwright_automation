@@ -15,6 +15,13 @@ from utils.csv_writer import write_csv, HEADERS
 EXPECTED_ROWS = 48
 REQUIRED_COLS = ["Low", "High", "Last", "Weight Avg"]
 
+# Validate URL
+def test_url(response_date,target_url):
+
+     #Validate URL
+     assert response_date in target_url
+     assert "market-results" in target_url
+
 #------------------------------------------------------------------
 # Fixture to Naviagte to the site, Extract data and write to csv
 #------------------------------------------------------------------
@@ -48,17 +55,6 @@ def setup_data(page,resolve_date,output_path,target_url):
         "delivery-date":resolve_date,
         "output_path": output_path
     }
-
-# Validate URL
-def test_url(setup_data):
-     page = setup_data["page"]
-     delivery_date = setup_data["delivery-date"]
-
-     url = page.url
-
-     #Validate URL
-     assert delivery_date in url
-     assert "market-results" in url
 
 #---------------------------------------------------
 # Test Class
