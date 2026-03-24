@@ -19,7 +19,7 @@ REQUIRED_COLS = ["Low", "High", "Last", "Weight Avg"]
 def test_url(resolve_date,target_url):
 
      #Validate URL
-     assert response_date in target_url
+     assert resolve_date in target_url
      assert "market-results" in target_url
 
 #------------------------------------------------------------------
