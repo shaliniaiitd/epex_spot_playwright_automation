@@ -30,7 +30,7 @@ class EpexMarketPage(BasePage):
     # ----------------------------------------------------------
     def wait_for_table(self):
         # Give time for manual CAPTCHA resolution (if present)
-        self.page.wait_for_timeout(CAPTCHA_WAIT_MS)
+        #self.page.wait_for_timeout(CAPTCHA_WAIT_MS)
         try:
             self.page.locator(TABLE_SELECTOR).wait_for(
                 state="visible", timeout=TABLE_TIMEOUT_MS

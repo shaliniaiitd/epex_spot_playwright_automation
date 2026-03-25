@@ -16,9 +16,21 @@ from config.settings import HEADLESS, VIEWPORT, LOCALE
 from datetime import date, timedelta
 import logging
 from config.settings import UrlConfig, BASE_URL, USER_DATA_DIR
+from pathlib import Path
 
 logger = logging.getLogger(__name__)
-logging.basicConfig(level=logging.INFO)
+
+# write logs to a file
+def pytest_configure():
+    log_dir = Path("logs")
+    log_dir.mkdir(exist_ok=True)
+
+    logging.basicConfig(
+        filename=log_dir / "test.log",
+        level=logging.INFO,
+        format="%(asctime)s [%(levelname)s] %(name)s: %(message)s",
+    )
+
 #-------------------------
 # PARAMETERIZING  URL
 #-------------------------
@@ -36,6 +48,7 @@ def pytest_addoption(parser):
     parser.addini("auction", "Default auction")
     parser.addoption("--browser-name", action="store", default="chromium", help="Browser to run tests on: chromium/firefox/webkit")
     parser.addoption("--delivery-date", action="store", default=None)
+
 
 @pytest.fixture(scope="session")
 def url_config(request,resolve_date):
