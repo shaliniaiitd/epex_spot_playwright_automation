@@ -1,6 +1,6 @@
 # EPEX SPOT Market Scraper Test
 
-Playwright-based automated test that scrapes half-hourly market data (Low, High, Last, Weight Avg) from the EPEX SPOT GB Continuous market results page and writes it to a CSV file.
+Playwright-based automated test that scrapes and validates half-hourly market data (Low, High, Last, Weight Avg) from the EPEX SPOT GB Continuous market results page, and verifies data integrity before writing it to a CSV file.
 
 ## PROJECT STRUCTURE
 
